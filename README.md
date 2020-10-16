@@ -1,5 +1,6 @@
 # RdpToolkit
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) 
+
 This is a PowerShell module to programatically generate and modify the `.rdp` connection files used by apps that implement Microsoft's Remote Desktop Protocol.  While fairly boring on its own, perhaps you can integrate this module into something of yours.
 
 ## Example

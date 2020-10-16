@@ -18,7 +18,7 @@
 @{
 
 # Root module
-RootModule = (Join-Path -Path 'src' -ChildPath 'RdpToolkit.psm1')
+RootModule = 'src/RdpToolkit.psm1'
 
 # Version number of this module.
 ModuleVersion = '1.0.0'
@@ -42,8 +42,8 @@ Description = 'Programatically generates Remote Desktop Connection files.'
 PowerShellVersion = '5.1'
 
 ScriptsToProcess = @(
-	(Join-Path -Path 'src' -ChildPath 'New-RdcFile.ps1'),
-	(Join-Path -Path 'src' -ChildPath 'Signatures.ps1')
+	'src/New-RdcFile.ps1',
+	'src/Signatures.ps1'
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
@@ -67,11 +67,11 @@ AliasesToExport = @(
 # List of all files packaged with this module.
 # Note that this only includes files needed for production, not for development.
 FileList = @(
-	(Join-Path -Path 'en-US' -ChildPath 'about_RdpToolkit.help.txt'),
-	(Join-Path -Path 'en-US' -ChildPath 'RdpToolkit-help.xml'),
-	(Join-Path -Path 'src'   -ChildPath 'New-RdcFile.ps1'),
-	(Join-Path -Path 'src'   -ChildPath 'RdpToolkit.psm1'),
-	(Join-Path -Path 'src'   -ChildPath 'Signatures.ps1'),
+	'en-US/about_RdpToolkit.help.txt',
+	'en-US/RdpToolkit-help.xml',
+	'src/New-RdcFile.ps1',
+	'src/RdpToolkit.psm1',
+	'src/Signatures.ps1',
 	'ChangeLog',
 	'INSTALL',
 	'LICENSE',
@@ -86,7 +86,7 @@ PrivateData = @{
 	PSData = @{
 
 		# Tags applied to this module. These help with module discovery in online galleries.
-		Tags = @('Remote Desktop', 'RDC', 'RDP', 'mstsc', 'msrdc', 'Terminal Services')
+		Tags = @('Remote-Desktop', 'RDC', 'RDP', 'mstsc', 'msrdc', 'Terminal-Services', 'rdpsign')
 
 		# A URL to the license for this module.
 		LicenseUri = 'https://www.gnu.org/licenses/agpl-3.0.en.html'

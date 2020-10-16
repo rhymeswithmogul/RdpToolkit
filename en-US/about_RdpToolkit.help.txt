@@ -1,0 +1,81 @@
+﻿TOPIC
+    about_rdptoolkit
+
+SHORT DESCRIPTION
+    RdpToolkit creates and manipulates Remote Desktop Connection files.
+
+LONG DESCRIPTION
+    RdpToolkit is a module for programatically creating and manipulating .rdp
+    files.  These files contain connection settings to allow apps that implement
+    Microsoft's Remote Desktop protocol to connect to remote computers.
+
+Compatibility
+    .rdp files are used by the Remote Desktop Connection app (mstsc.exe) built
+    in to most versions of Windows. They are also used by the Microsoft Remote
+    Desktop app for Windows 10, macOS, iOS, iPadOS, and Android. Many
+    third-party or open-source apps should support reading a .rdp file, too.
+    This module creates .rdp files that follow the most recent specifications. 
+    Older RDP clients will ignore any lines that they do not understand.
+
+Digital Signatures
+    .rdp files can have a digital signature attached.  Signed .rdp files prevent
+    the user from changing most settings.  In addition, they will see fewer
+    warnings, and they will see the signer's name.
+    
+    The downside of this is that the digital signatures applied to .rdp files do
+    not support timestamping (like Authenticode does).  Once the code signing
+    certificate expires or is revoked, the .rdp file becomes unusable.  Anyone
+    attempting to use it will only get an error message about the signature
+    being invalid.
+
+EXAMPLES
+    The most powerful cmdlet included with this module (at this time) is very
+    likely New-RdcFile, which lets you make .rdp files.  For example:
+
+    PS C:\> New-RdcFile -Path 'Work.rdp' -ComputerName 'WorkPC.contoso.local' `
+    >> -UserName 'myaccount@contoso.com' -Redirect Drives,Cameras,AudioCapture
+
+    As specified, this will create the file MyWorkPC.rdp.  The file will connect
+    you to WorkPC.contoso.local.  The default username will be
+    myaccount@contoso.com.  On connecting, all of the local computer's drives,
+    cameras, and microphones will be available in the remote session.
+    
+    If you were to do a (Get-Content 'MyWorkPC.rdp'), you would see this:
+    
+        audiocapturemode:i:1
+        camerastoredirect:s:*
+        domain:s:
+        drivestoredirect:s:*
+        full address:s:WorkPC.contoso.local
+        redirectsmartcards:i:0
+        singlemoninwindowedmode:i:1
+        use multimon:i:1
+        username:s:myaccount@contoso.com
+
+    For more information and further examples, run Get-Help on each of the
+    functions in this module.
+
+NOTE
+    RdpToolkit is released under version 3 of the Affero GNU General Public
+    License.  The full text of the license is available in the COPYING file,
+    or on the Web at https://www.gnu.org/licenses/agpl-3.0.en.html.
+
+TROUBLESHOOTING NOTE
+    This module does not yet support setting every possible option.  You are
+    free to open an issue or make a pull request by visiting this module's
+    GitHub page.
+
+SEE ALSO
+    New-RdcFile
+    Add-RdcFileSignature
+    Remove-RdcFileSignature
+    https://github.com/rhymeswithmogul/RdpToolkit
+    https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files
+
+KEYWORDS
+    Some keywords you might use to search for this module include:
+    - Remote Desktop Connection (RDC)
+    - Remote Desktop Protocol (RDP)
+    - Terminal Services Connection (MSTSC.exe)
+    - Microsoft Remote Desktop Connection (MSRDC)
+

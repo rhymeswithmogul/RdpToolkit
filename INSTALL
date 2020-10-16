@@ -1,0 +1,16 @@
+HOW TO INSTALL RDPTOOLKIT
+
+RdpToolkit can be installed in one of two ways. Most people will want to install
+this module from PowerShell Gallery. Make sure that PowerShellGet isn't horribly
+out of date (it shouldn't be), and then run this command:
+
+    PS C:\> Install-Module -Name RdpToolkit -Repository PSGallery
+
+If you are using PowerShell 5.1 or older, this might fail, unless you explicitly
+enable TLS 1.2.
+
+
+ALTERNATIVE METHOD:
+
+Copy this entire folder into your $env:PSModulePath. You will need to update the
+module manually.

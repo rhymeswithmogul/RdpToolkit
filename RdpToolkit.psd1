@@ -21,11 +21,7 @@
 RootModule = 'src/RdpToolkit.psm1'
 
 # Version number of this module.
-<<<<<<< HEAD
 ModuleVersion = '1.1'
-=======
-ModuleVersion = '1.0.1'
->>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 
 # Supported PSEditions
 CompatiblePSEditions = @('Desktop', 'Core')

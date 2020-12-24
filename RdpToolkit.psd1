@@ -21,7 +21,7 @@
 RootModule = 'src/RdpToolkit.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.1'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Desktop', 'Core')
@@ -41,10 +41,8 @@ Description = 'Programatically generates Remote Desktop Connection files.'
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '5.1'
 
-ScriptsToProcess = @(
-	'src/New-RdcFile.ps1',
-	'src/Signatures.ps1'
-)
+# Scripts to run in the caller's environment.
+ScriptsToProcess = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
@@ -69,9 +67,7 @@ AliasesToExport = @(
 FileList = @(
 	'en-US/about_RdpToolkit.help.txt',
 	'en-US/RdpToolkit-help.xml',
-	'src/New-RdcFile.ps1',
 	'src/RdpToolkit.psm1',
-	'src/Signatures.ps1',
 	'ChangeLog',
 	'INSTALL',
 	'LICENSE',

@@ -1,7 +1,7 @@
 ---
 external help file: RdpToolkit-help.xml
 Module Name: RdpToolkit
-online version:
+online version: https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/Remove-RdcFileSignature.md
 schema: 2.0.0
 ---
 

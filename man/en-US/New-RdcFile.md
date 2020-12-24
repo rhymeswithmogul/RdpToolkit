@@ -1,7 +1,7 @@
 ---
 external help file: RdpToolkit-help.xml
 Module Name: RdpToolkit
-online version:
+online version: https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/New-RdcFile.md
 schema: 2.0.0
 ---
 
@@ -83,21 +83,6 @@ Required: True
 Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -194,10 +179,11 @@ Accept wildcard characters: False
 ```
 
 ### -Redirect
-Remote Desktop Connection can redirect some client devices into the remote session.  You may specify which items you would like redirected:
+Remote Desktop Connection can redirect some client devices into the remote session.  You may specify the value * to redirect all items, or specify which items you would like redirected:
 
  - AudioCapture (microphones)
  - Cameras
+ - Clipboard
  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)
  - PnPDevices
  - Printers
@@ -205,13 +191,13 @@ Remote Desktop Connection can redirect some client devices into the remote sessi
  - SmartCards (and Windows Hello for Business)
  - UsbDevices
 
- If this parameter is omitted or null, nothing will be redirected.
+ If this parameter is omitted or null, some things will be redirected.
 
 ```yaml
 Type: String[]
 Parameter Sets: (All)
 Aliases:
-Accepted values: AudioCapture, Cameras, Drives, PnPDevices, Printers, SerialPorts, SmartCards, UsbDevices
+Accepted values: *, AudioCapture, Cameras, Clipboard, Drives, PnPDevices, Printers, SerialPorts, SmartCards, UsbDevices
 
 Required: False
 Position: Named
@@ -272,6 +258,21 @@ Provide a default username.  You may use any format accepted by the remote compu
 Type: String
 Parameter Sets: (All)
 Aliases: User
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
 
 Required: False
 Position: Named

@@ -1,3 +1,15 @@
 RdpToolkit change log
 
+Version 1.1 (December 24, 2020):
+ - FIX: Remote Desktop Gateway servers are now implemented correctly. A profile
+   usage needed to be explicitly specified, or else MSTSC would ignore it all.
+ - ENHANCEMENT: Clipboard redirection is now supported.
+ - ENHANCEMENT: The -Redirect parameter now supports * as a valid value, which
+   will redirect everything that can be redirected.
+
+Version 1.0.1 (October 16, 2020):
+ - Well, this is embarrassing.  The module would load but do nothing on other
+   computers.  I combined the ScriptsToProcess and made one giant RootModule.
+   Now it's working fine.
+
 Version 1.0.0 (October 15, 2020) was the initial release.

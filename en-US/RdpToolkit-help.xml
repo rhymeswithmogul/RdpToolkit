@@ -39,17 +39,6 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-          <maml:name>Confirm</maml:name>
-          <maml:Description>
-            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PathToRDPSign</maml:name>
           <maml:Description>
@@ -61,6 +50,17 @@
             <maml:uri />
           </dev:type>
           <dev:defaultValue>${env:WinDir}\System32\rdpsign.exe</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
@@ -88,18 +88,6 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-        <maml:name>Confirm</maml:name>
-        <maml:Description>
-          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>Files</maml:name>
         <maml:Description>
@@ -123,6 +111,18 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>${env:WinDir}\System32\rdpsign.exe</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
@@ -172,6 +172,10 @@
       </command:example>
     </command:examples>
     <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/Add-RdcFileSignature.md</maml:uri>
+      </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_RdpToolkit</maml:linkText>
         <maml:uri></maml:uri>
@@ -224,17 +228,6 @@
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-          <maml:name>Confirm</maml:name>
-          <maml:Description>
-            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain">
           <maml:name>DomainName</maml:name>
@@ -298,13 +291,15 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Redirect</maml:name>
           <maml:Description>
-            <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify which items you would like redirected:</maml:para>
-            <maml:para> - AudioCapture (microphones)  - Cameras  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
-            <maml:para> If this parameter is omitted or null, nothing will be redirected.</maml:para>
+            <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify the value * to redirect all items, or specify which items you would like redirected:</maml:para>
+            <maml:para> - AudioCapture (microphones)  - Cameras  - Clipboard  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
+            <maml:para> If this parameter is omitted or null, some things will be redirected.</maml:para>
           </maml:Description>
           <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">*</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">AudioCapture</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">Cameras</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Clipboard</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">Drives</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">PnPDevices</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">Printers</command:parameterValue>
@@ -364,6 +359,17 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
           <maml:Description>
@@ -389,18 +395,6 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-        <maml:name>Confirm</maml:name>
-        <maml:Description>
-          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain">
         <maml:name>DomainName</maml:name>
@@ -478,9 +472,9 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Redirect</maml:name>
         <maml:Description>
-          <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify which items you would like redirected:</maml:para>
-          <maml:para> - AudioCapture (microphones)  - Cameras  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
-          <maml:para> If this parameter is omitted or null, nothing will be redirected.</maml:para>
+          <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify the value * to redirect all items, or specify which items you would like redirected:</maml:para>
+          <maml:para> - AudioCapture (microphones)  - Cameras  - Clipboard  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
+          <maml:para> If this parameter is omitted or null, some things will be redirected.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
@@ -536,6 +530,18 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
@@ -622,6 +628,10 @@
       </command:example>
     </command:examples>
     <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/New-RdcFile.md</maml:uri>
+      </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_RdpToolkit</maml:linkText>
         <maml:uri></maml:uri>
@@ -741,6 +751,10 @@
       </command:example>
     </command:examples>
     <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/Remove-RdcFileSignature.md</maml:uri>
+      </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_RdpToolkit</maml:linkText>
         <maml:uri></maml:uri>

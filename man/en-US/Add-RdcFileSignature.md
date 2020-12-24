@@ -1,7 +1,7 @@
 ---
 external help file: RdpToolkit-help.xml
 Module Name: RdpToolkit
-online version:
+online version: https://github.com/rhymeswithmogul/RdpToolkit/blob/main/man/en-US/Add-RdcFileSignature.md
 schema: 2.0.0
 ---
 
@@ -46,21 +46,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Files
 One or more Remote Desktop Connection (.rdp) files to be signed.
 
@@ -87,6 +72,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: ${env:WinDir}\System32\rdpsign.exe
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

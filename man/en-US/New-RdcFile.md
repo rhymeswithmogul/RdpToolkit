@@ -13,9 +13,10 @@ Creates a new Remote Desktop Connection (.rdp) file.
 ## SYNTAX
 
 ```
-New-RdcFile [-Path] <FileInfo> [-ComputerName] <String> [-UserName <String>] [-DomainName <String>]
- [-GatewayServerName <Uri>] [-UseLoggedOnUserCredentials] [-Redirect <String[]>] [-DrivesToRedirect <String[]>]
- [-SingleScreen] [-Force] [-Sign] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-RdcFile [-Path] <FileInfo> [-ComputerName] <String> [-AlternateComputerName <String>]
+ [-UserName <String>] [-DomainName <String>] [-GatewayServerName <Uri>] [-UseLoggedOnUserCredentials]
+ [-Redirect <String[]>] [-DrivesToRedirect <String[]>] [-SingleScreen] [-Force] [-Sign] [-PassThru]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -83,6 +84,21 @@ Required: True
 Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -AlternateComputerName
+The alternate name of the computer.  You may specify a computer name or an IP address.  If this specified, the -ComputerName parameter will be ignored by many clients.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: AlternateFullAddress
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

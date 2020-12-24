@@ -229,6 +229,18 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="AlternateFullAddress">
+          <maml:name>AlternateComputerName</maml:name>
+          <maml:Description>
+            <maml:para>The alternate name of the computer.  You may specify a computer name or an IP address.  If this specified, the -ComputerName parameter will be ignored by many clients.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain">
           <maml:name>DomainName</maml:name>
           <maml:Description>
@@ -388,6 +400,18 @@
         <maml:name>ComputerName</maml:name>
         <maml:Description>
           <maml:para>The name of the computer.  You may specify only the computer name, or you may specify the fully-qualified domain name.  This is the only required parameter.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="AlternateFullAddress">
+        <maml:name>AlternateComputerName</maml:name>
+        <maml:Description>
+          <maml:para>The alternate name of the computer.  You may specify a computer name or an IP address.  If this specified, the -ComputerName parameter will be ignored by many clients.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>

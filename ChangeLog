@@ -1,5 +1,6 @@
 RdpToolkit change log
 
+<<<<<<< HEAD
 Version 1.1 (December 24, 2020):
  - FIX: Remote Desktop Gateway servers are now implemented correctly. A profile
    usage needed to be explicitly specified, or else MSTSC would ignore it all.
@@ -7,6 +8,8 @@ Version 1.1 (December 24, 2020):
  - ENHANCEMENT: The -Redirect parameter now supports * as a valid value, which
    will redirect everything that can be redirected.
 
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 Version 1.0.1 (October 16, 2020):
  - Well, this is embarrassing.  The module would load but do nothing on other
    computers.  I combined the ScriptsToProcess and made one giant RootModule.

@@ -40,8 +40,13 @@ Function New-RdcFile {
 
 		[Switch] $UseLoggedOnUserCredentials,
 
+<<<<<<< HEAD
 		[ValidateSet('*', 'AudioCapture', 'Cameras', 'Clipboard', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'SmartCards', 'UsbDevices')]
 		[String[]] $Redirect = @('AudioCapture', 'Cameras', 'Clipboard', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'UsbDevices'),
+=======
+		[ValidateSet('AudioCapture', 'Cameras', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'SmartCards', 'UsbDevices')]
+		[String[]] $Redirect = @('AudioCapture', 'Cameras', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'UsbDevices'),
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 
 		[Alias('Drives')]
 		[ValidatePattern('(DynamicDrives|[A-Za-z]:?)')]
@@ -64,18 +69,25 @@ Function New-RdcFile {
 	Write-Debug -Message 'Single monitor in windowed mode = yes'
 	
 	If ($null -ne $UserName) {
+<<<<<<< HEAD
 		# Per Microsoft, "[s]pecifies the name of the user account that will
 		# be used to sign in to the remote computer."
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 		Write-Debug -Message "User name = $UserName"
 		$RdpFileContents += "username:s:$UserName"
 	}
 	If ($null -ne $DomainName) {
+<<<<<<< HEAD
 		# Specifies the name of the domain in which the user account that will
 		# be used to sign in to the remote computer is located.
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 		Write-Debug -Message "Domain name = $DomainName"
 		$RdpFileContents += "domain:s:$DomainName"
 	}
 	If ($null -ne $GatewayServerName) {
+<<<<<<< HEAD
 		# Specifies the RD Gateway host name.
 		Write-Debug -Message "Gateway server name = $GatewayServerName"
 		$RdpFileContents += "gatewayhostname:s:$GatewayServerName"
@@ -93,13 +105,24 @@ Function New-RdcFile {
 
 		# Determines whether a user's credentials are saved and used for both
 		# the RD Gateway and the remote computer.
+=======
+		Write-Debug -Message "Gateway server name = $GatewayServerName"
+		$RdpFileContents += "gatewayhostname:s:$GatewayServerName"
+
+		Write-Debug -Message 'Gateway usage method = 1'
+		$RdpFileContents += 'gatewayusagemethod:i:1'
+
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 		Write-Debug -Message 'Use same credentials for gateway and PC = yes'
 		$RdpFileContents += 'promptcredentialonce:i:1'
 
 		If ($UseLoggedOnUserCredentials) {
+<<<<<<< HEAD
 			# Specifies the RD Gateway authentication method.
 			# 0 = NTLM.  1 = Smart card.  2 = Logged-on user credentials
 			# 3 = Basic.  4 = Let user select later.  5 = Cookie.
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 			Write-Debug -Message 'Gateway credentials = logged on user'
 			$RdpFileContents += 'gatewaycredentialssource:i:2'
 		} Else {
@@ -107,6 +130,7 @@ Function New-RdcFile {
 		}
 	}
 
+<<<<<<< HEAD
 	Switch -RegEx ($Redirect) {
 		# Redirect microphones.
 		'\*|AudioCapture' {
@@ -128,6 +152,18 @@ Function New-RdcFile {
 
 		# Redirect all drives (default), or only certain ones.
 		'\*|Drives' {
+=======
+	Switch ($Redirect) {
+		'AudioCapture' {
+			Write-Debug -Message 'Redirected devices += microphones'
+			$RdpFileContents += 'audiocapturemode:i:1'
+		}
+		'Cameras' {
+			Write-Debug -Message 'Redirected devices += cameras (all)'
+			$RdpFileContents += 'camerastoredirect:s:*'
+		}
+		'Drives' {
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 			If ($null -eq $DrivesToRedirect) {
 				Write-Debug -Message 'Redirected devices += drives (all)'
 				$RdpFileContents += 'drivestoredirect:s:*'
@@ -144,6 +180,7 @@ Function New-RdcFile {
 				$RdpFileContents += "drivestoredirect:s:$($drives -Join ';')"
 			}
 		}
+<<<<<<< HEAD
 
 		# Redirect Plug and Play devices.
 		'\*|PnPDevices' {
@@ -175,19 +212,47 @@ Function New-RdcFile {
 			$RdpFileContents += 'usbdevicestoredirect:s:*'
 		}
 
+=======
+		'PnPDevices' {
+			Write-Debug -Message 'Redirected devices += devices (all)'
+			$RdpFileContents += 'devicestoredirect:s:*'
+		}
+		'Printers' {
+			Write-Debug -Message 'Redirected devices += printers'
+			$RdpFileContents += 'redirectprinters:i:1'
+		}
+		'SerialPorts' {
+			Write-Debug -Message 'Redirected devices += COM: ports'
+			$RdpFileContents += 'redirectcomports:i:1'
+		}
+		'SmartCards' {
+			Write-Debug -Message 'Redirected devices += smart cards and Windows Hello for Business'
+			$RdpFileContents += 'redirectsmartcards:i:1'
+		}
+		'UsbDevices' {
+			Write-Debug -Message 'Redirected devices += USB devices (all)'
+			$RdpFileContents += 'usbdevicestoredirect:s:*'
+		}
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 		default {
 			Write-Warning -Message "The redirection item $_ was not recognized and will be ignored."
 		}
 	}
+<<<<<<< HEAD
 	# Disable smart card redirection unless the user has explicitly asked for
 	# it.  Windows Hello and Hello for Business devices tend to be redirected
 	# then, which are usually not supported for Remote Desktop authentication.
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 	If ($RdpFileContents -NotContains 'redirectsmartcards:i:1') {
 		$RdpFileContents += 'redirectsmartcards:i:0'
 	}
 
+<<<<<<< HEAD
 	# Determines whether the remote session will use one or multiple displays
 	# from the local computer.
+=======
+>>>>>>> 1e9ec840067eaee606229eda8a26982b7a6b0329
 	If ($SingleScreen) {
 		Write-Debug -Message 'Multi-monitor support = off'
 		$RdpFileContents += 'use multimon:i:0'

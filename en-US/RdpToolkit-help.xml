@@ -17,9 +17,9 @@
         <maml:name>Add-RdcFileSignature</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>Files</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>One or more Remote Desktop Connection (.rdp) files to be signed.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">FileInfo[]</command:parameterValue>
           <dev:type>
             <maml:name>FileInfo[]</maml:name>
@@ -29,9 +29,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Certificate, Thumbprint">
           <maml:name>CertificateThumbprint</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Rather than have the .NET runtime select a code signing certificate for you, you may also specify the SHA-256 thumbprint of your certificate.  This is only needed if you have more than one non-expired code signing certificate installed on your computer.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -41,9 +41,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PathToRDPSign</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>By default, rdpsign.exe is located at C:\Windows\System32\rdpsign.exe.  If your copy of rdpsign.exe is located somewhere else, or if you are using a third-party tool compatible with its syntax, specify its path here.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">FileInfo</command:parameterValue>
           <dev:type>
             <maml:name>FileInfo</maml:name>
@@ -53,9 +53,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -64,9 +64,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is run, but the RDC file is neither signed nor modified.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -78,9 +78,9 @@
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Certificate, Thumbprint">
         <maml:name>CertificateThumbprint</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Rather than have the .NET runtime select a code signing certificate for you, you may also specify the SHA-256 thumbprint of your certificate.  This is only needed if you have more than one non-expired code signing certificate installed on your computer.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -90,9 +90,9 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>Files</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>One or more Remote Desktop Connection (.rdp) files to be signed.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">FileInfo[]</command:parameterValue>
         <dev:type>
           <maml:name>FileInfo[]</maml:name>
@@ -102,9 +102,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>PathToRDPSign</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>By default, rdpsign.exe is located at C:\Windows\System32\rdpsign.exe.  If your copy of rdpsign.exe is located somewhere else, or if you are using a third-party tool compatible with its syntax, specify its path here.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">FileInfo</command:parameterValue>
         <dev:type>
           <maml:name>FileInfo</maml:name>
@@ -114,9 +114,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
         <maml:name>Confirm</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -126,9 +126,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is run, but the RDC file is neither signed nor modified.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -207,9 +207,9 @@
         <maml:name>New-RdcFile</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="File, RdcFile, RdpFile">
           <maml:name>Path</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>{{ Fill Path Description }}</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">FileInfo</command:parameterValue>
           <dev:type>
             <maml:name>FileInfo</maml:name>
@@ -219,9 +219,9 @@
         </command:parameter>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="DnsHostName, HostName, IPAddress, Name, RdSessionHostName, ServerName">
           <maml:name>ComputerName</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The name of the computer.  You may specify only the computer name, or you may specify the fully-qualified domain name.  This is the only required parameter.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -231,9 +231,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="AlternateFullAddress">
           <maml:name>AlternateComputerName</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The alternate name of the computer.  You may specify a computer name or an IP address.  If this specified, the -ComputerName parameter will be ignored by many clients.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -243,9 +243,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain">
           <maml:name>DomainName</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>You may specify the default Active Directory Domain Services domain name.  Alternatively, you may use a user principal name in the UserName parameter.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -255,10 +255,10 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Drives">
           <maml:name>DrivesToRedirect</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Specify which drives will be redirected into the remote session.  Specify drive letters in Windows format (that is, a letter and a colon), separated by comma.  To redirect drives that are plugged in after the session is started, include "DynamicDrives" in the list.</maml:para>
             <maml:para>If the -Redirect parameter includes "Drives" and this parameter is omitted, then all drives will be redirected into the remote session.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
             <maml:name>String[]</maml:name>
@@ -268,9 +268,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Force</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>If the .rdp file exists, overwrite it without confirmation.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -279,9 +279,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>GatewayServerName</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>If you must use a Remote Desktop Gateway server, specify its fully-qualified domain name.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
           <dev:type>
             <maml:name>Uri</maml:name>
@@ -291,9 +291,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PassThru</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Return an [IO.FileSystemObject] pointing to the new .rdp file.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -302,11 +302,11 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Redirect</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify the value * to redirect all items, or specify which items you would like redirected:</maml:para>
             <maml:para> - AudioCapture (microphones)  - Cameras  - Clipboard  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
             <maml:para> If this parameter is omitted or null, some things will be redirected.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">*</command:parameterValue>
             <command:parameterValue required="false" command:variableLength="false">AudioCapture</command:parameterValue>
@@ -328,9 +328,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Sign</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Digitally sign the .rdp file to prevent tampering.  Note that .rdp files do not support timestamping, so the file will become unusable after the signing certificate expires.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -339,9 +339,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>SingleScreen</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>By default, Remote Desktop sessions will use all available monitors.  To limit Remote Desktop to a single screen, use this parameter.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -350,9 +350,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>UseLoggedOnUserCredentials</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>By default, Remote Desktop Connection will ask the user for their credentials.  To use the current user's username and password, specify this.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -361,9 +361,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="User">
           <maml:name>UserName</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Provide a default username.  You may use any format accepted by the remote computer, including just a username, a username with the NetBIOS domain name (e.g., DOMAIN\username), or a user principal name (e.g., username@domain.local).</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -373,9 +373,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -384,9 +384,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is run, but the .rdp file is not generated.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -398,9 +398,9 @@
     <command:parameters>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="DnsHostName, HostName, IPAddress, Name, RdSessionHostName, ServerName">
         <maml:name>ComputerName</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The name of the computer.  You may specify only the computer name, or you may specify the fully-qualified domain name.  This is the only required parameter.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -410,9 +410,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="AlternateFullAddress">
         <maml:name>AlternateComputerName</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The alternate name of the computer.  You may specify a computer name or an IP address.  If this specified, the -ComputerName parameter will be ignored by many clients.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -422,9 +422,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Domain">
         <maml:name>DomainName</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>You may specify the default Active Directory Domain Services domain name.  Alternatively, you may use a user principal name in the UserName parameter.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -434,10 +434,10 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Drives">
         <maml:name>DrivesToRedirect</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Specify which drives will be redirected into the remote session.  Specify drive letters in Windows format (that is, a letter and a colon), separated by comma.  To redirect drives that are plugged in after the session is started, include "DynamicDrives" in the list.</maml:para>
           <maml:para>If the -Redirect parameter includes "Drives" and this parameter is omitted, then all drives will be redirected into the remote session.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
           <maml:name>String[]</maml:name>
@@ -447,9 +447,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Force</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>If the .rdp file exists, overwrite it without confirmation.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -459,9 +459,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>GatewayServerName</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>If you must use a Remote Desktop Gateway server, specify its fully-qualified domain name.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
         <dev:type>
           <maml:name>Uri</maml:name>
@@ -471,9 +471,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>PassThru</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Return an [IO.FileSystemObject] pointing to the new .rdp file.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -483,9 +483,9 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="File, RdcFile, RdpFile">
         <maml:name>Path</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>{{ Fill Path Description }}</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">FileInfo</command:parameterValue>
         <dev:type>
           <maml:name>FileInfo</maml:name>
@@ -495,11 +495,11 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Redirect</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Remote Desktop Connection can redirect some client devices into the remote session.  You may specify the value * to redirect all items, or specify which items you would like redirected:</maml:para>
           <maml:para> - AudioCapture (microphones)  - Cameras  - Clipboard  - Drives (all drives, plus drives plugged in later.  To override this, use the -DrivesToRedirect parameter)  - PnPDevices  - Printers  - SerialPorts  - SmartCards (and Windows Hello for Business)  - UsbDevices</maml:para>
           <maml:para> If this parameter is omitted or null, some things will be redirected.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
           <maml:name>String[]</maml:name>
@@ -509,9 +509,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Sign</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Digitally sign the .rdp file to prevent tampering.  Note that .rdp files do not support timestamping, so the file will become unusable after the signing certificate expires.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -521,9 +521,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>SingleScreen</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>By default, Remote Desktop sessions will use all available monitors.  To limit Remote Desktop to a single screen, use this parameter.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -533,9 +533,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>UseLoggedOnUserCredentials</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>By default, Remote Desktop Connection will ask the user for their credentials.  To use the current user's username and password, specify this.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -545,9 +545,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="User">
         <maml:name>UserName</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Provide a default username.  You may use any format accepted by the remote computer, including just a username, a username with the NetBIOS domain name (e.g., DOMAIN\username), or a user principal name (e.g., username@domain.local).</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -557,9 +557,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
         <maml:name>Confirm</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -569,9 +569,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is run, but the .rdp file is not generated.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -691,9 +691,9 @@
         <maml:name>Remove-RdcFileSignature</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="File, Files, RdcFile, RdcFiles">
           <maml:name>Path</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>One or more Remote Desktop Connection (.rdp) files to have their signatures removed.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">FileInfo[]</command:parameterValue>
           <dev:type>
             <maml:name>FileInfo[]</maml:name>
@@ -703,9 +703,31 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>KeepBlankLines</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Files generated by MSTSC (Remote Desktop Connection) tend to have blank lines between each directive.  By default, this cmdlet will remove those unnecessary blank lines.  If you would like to keep them for some reason, supply this parameter.</maml:para>
-          </maml:Description>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -717,9 +739,9 @@
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>KeepBlankLines</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Files generated by MSTSC (Remote Desktop Connection) tend to have blank lines between each directive.  By default, this cmdlet will remove those unnecessary blank lines.  If you would like to keep them for some reason, supply this parameter.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -729,15 +751,39 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="File, Files, RdcFile, RdcFiles">
         <maml:name>Path</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>One or more Remote Desktop Connection (.rdp) files to have their signatures removed.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">FileInfo[]</command:parameterValue>
         <dev:type>
           <maml:name>FileInfo[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes>

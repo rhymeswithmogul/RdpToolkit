@@ -13,10 +13,10 @@ Creates a new Remote Desktop Connection (.rdp) file.
 ## SYNTAX
 
 ```
-New-RdcFile [-Path] <FileInfo> [-ComputerName] <String> [-AlternateComputerName <String>]
- [-UserName <String>] [-DomainName <String>] [-GatewayServerName <Uri>] [-UseLoggedOnUserCredentials]
- [-Redirect <String[]>] [-DrivesToRedirect <String[]>] [-SingleScreen] [-Force] [-Sign] [-PassThru]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+New-RdcFile [-Path] <FileInfo> [-ComputerName] <String> [-AlternateComputerName <String>] [-UserName <String>]
+ [-DomainName <String>] [-GatewayServerName <Uri>] [-UseLoggedOnUserCredentials] [-Redirect <String[]>]
+ [-DrivesToRedirect <String[]>] [-SingleScreen] [-Force] [-Sign] [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

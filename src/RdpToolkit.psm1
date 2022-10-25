@@ -243,6 +243,7 @@ Function New-RdcFile {
 }
 
 Function Remove-RdcFileSignature {
+	[CmdletBinding(SupportsShouldProcess, ConfirmImpact='Low')]
 	[OutputType([void])]
 	Param(
 		[Parameter(Mandatory, Position=0, ValueFromPipeline)]
@@ -259,11 +260,14 @@ Function Remove-RdcFileSignature {
 		ForEach ($Argument in $Path) {
 			ForEach ($File in (Get-Item $Argument)) {
 				$content = Get-Content -Path $File
-				If (-Not $KeepBlankLines) {
-					$content = ($content | Where-Object {$_.trim() -ne ""})
+				If ($PSCmdlet.ShouldProcess($File, 'Remove signature'))
+				{
+					If (-Not $KeepBlankLines) {
+						$content = ($content | Where-Object {$_.trim() -ne ""})
+					}
+					$content = ($content | Select-String -NotMatch -Pattern '^sign(ature|scope):*')
+					Set-Content -Path $File -Value $content -Force
 				}
-				$content = ($content | Select-String -NotMatch -Pattern '^sign(ature|scope):*')
-				Set-Content -Path $File -Value $content -Force
 			}
 		}
 	}
@@ -293,7 +297,7 @@ Function Add-RdcFileSignature {
 		# If the user specified a certificate's thumbprint, we'll use that one.
 		# Otherwise, call Get-CodeSigningCertificates to pick one automatically.
 		If ("" -eq $CertificateThumbprint) {
-			$CertificateThumbprint = Get-CodeSigningCertificates
+			$CertificateThumbprint = Get-CodeSigningCertificate
 		}
 		Write-Verbose -Message "Signing with the certificate $CertificateThumbprint."
 	}
@@ -318,9 +322,10 @@ Function Add-RdcFileSignature {
 	}
 }
 
-Function Get-CodeSigningCertificates {
+Function Get-CodeSigningCertificate {
 	[OutputType([String])]
 	[CmdletBinding()]
+	[Alias('Get-CodeSigningCertificate')]
 	Param()
 
 	$Thumbprint = $null

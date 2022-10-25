@@ -1,5 +1,9 @@
 RdpToolkit change log
 
+Version 1.1.1 (October 25, 2022):
+ - ENHANCEMENT: Add ShouldProcess support for Remove-RdcFileSignature cmdlet.
+ - ENHANCEMENT: Renamed Get-CodeSigningCertificates to have a singular noun.
+
 Version 1.1 (December 24, 2020):
  - FIX: Remote Desktop Gateway servers are now implemented correctly. A profile
    usage needed to be explicitly specified, or else MSTSC would ignore it all.

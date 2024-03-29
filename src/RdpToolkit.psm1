@@ -43,7 +43,12 @@ Function New-RdcFile {
 
 		[Switch] $UseLoggedOnUserCredentials,
 
-		[ValidateSet('*', 'AudioCapture', 'Cameras', 'Clipboard', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'SmartCards', 'UsbDevices')]
+		#Option to manage color depth, default = 16Bit
+		[ValidateSet('15','16','24','32')]
+		[String] $bpp = '16',
+
+		#Split SmartCard and WebAuthn
+		[ValidateSet('*', 'AudioCapture', 'Cameras', 'Clipboard', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'SmartCards', 'WebAuthn', 'UsbDevices')]
 		[String[]] $Redirect = @('AudioCapture', 'Cameras', 'Clipboard', 'Drives', 'PnPDevices', 'Printers', 'SerialPorts', 'UsbDevices'),
 
 		[Alias('Drives')]
@@ -117,6 +122,26 @@ Function New-RdcFile {
 		}
 	}
 
+	#New bpp section
+	Switch -RegEx ($bpp) {
+	        '15' {
+	            #Write-Debug -Message 'Redirected devices += microphones'
+	            $RdpFileContents += 'session bpp:i:15'
+	        }
+	        '16' {
+	            #Write-Debug -Message 'Redirected devices += microphones'
+	            $RdpFileContents += 'session bpp:i:16'
+	        }
+	        '24' {
+	            #Write-Debug -Message 'Redirected devices += microphones'
+	            $RdpFileContents += 'session bpp:i:24'
+	        }
+	        '32' {
+	            #Write-Debug -Message 'Redirected devices += microphones'
+	            $RdpFileContents += 'session bpp:i:32'
+	        }
+   	}
+
 	Switch -RegEx ($Redirect) {
 		# Redirect microphones.
 		'\*|AudioCapture' {
@@ -173,11 +198,18 @@ Function New-RdcFile {
 			$RdpFileContents += 'redirectcomports:i:1'
 		}
 
-		# Redirect smart cards and Windows Hello for Business tokens.
-		'\*|SmartCards' {
-			Write-Debug -Message 'Redirected devices += smart cards and Windows Hello for Business'
-			$RdpFileContents += 'redirectsmartcards:i:1'
-		}
+		# After split smart cards and WebAuthn
+		# Redirect smart cards.
+	        '\*|SmartCards' {
+	            Write-Debug -Message 'Redirected devices += smart cards'
+	            $RdpFileContents += 'redirectsmartcards:i:1'
+	        }
+
+	        # Redirect WebAuthn - Windows Hello for Business tokens.
+	        '\*|WebAuthn' {
+	            Write-Debug -Message 'Windows Hello for Business - WebAuthn'
+	            $RdpFileContents += 'redirectwebauthn:i:1'
+	        }
 
 		# Redirect USB devices.
 		'\*|UsbDevices' {
@@ -194,6 +226,16 @@ Function New-RdcFile {
 	# then, which are usually not supported for Remote Desktop authentication.
 	If ($RdpFileContents -NotContains 'redirectsmartcards:i:1') {
 		$RdpFileContents += 'redirectsmartcards:i:0'
+	}
+
+	# Disable WebAuthn Windows Hello by defalut
+	If ($RdpFileContents -NotContains 'redirectwebauthn:i:1') {
+		$RdpFileContents += 'redirectwebauthn:i:0'
+	}
+	
+	# Disable Redirect Printers by defalut
+	If ($RdpFileContents -NotContains 'redirectprinters:i:1') {
+		$RdpFileContents += 'redirectprinters:i:0'
 	}
 
 	# Determines whether the remote session will use one or multiple displays
